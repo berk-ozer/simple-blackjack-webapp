@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Play Blackjack</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+    <!-- 
+         * give credit for card images to American Contract Bridge League
+         Optional: instructions on the left bottom, with hide/show toggle
+    -->
+
+    <div class="deck">
+        <div class="remaining">52</div>
+    </div>
+
+    <div class="buttons">
+        <button id="restart">Start</button>
+        <button id="hit" disabled>Hit</button>
+        <button id="stand" disabled>Stand</button>
+    </div>
+
+    <div class="winner" hidden>
+        You won!
+    </div>
+
+    <div class="platform player">
+        Player
+        <div class="score">0</div>
+        <div class="card-table"></div>
+        
+    </div>
+    
+    <div class="platform dealer">
+        Dealer
+        <div class="score">0</div>
+        <div class="card-table"></div>
+    </div>
+
+    
+
+
+
+    <script src="jquery.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
+
