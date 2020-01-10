@@ -40,6 +40,16 @@ button {
     color: gold;
 }
 
+.info {
+    position: absolute;
+    left: 0;
+    top: 36vh;
+    width: 18vw;
+    box-sizing: border-box;
+    padding-left: 10px;
+    font-size: 0.8rem;
+}
+
 .platform {
     width: 30vw;
     height: 65vh;
@@ -60,6 +70,10 @@ button {
 
 .dealer {
     right: 19vw;
+}
+
+.shadow {
+    box-shadow: -11px 11px 13px 2px rgba(0,0,0,0.75);
 }
 
 .score {

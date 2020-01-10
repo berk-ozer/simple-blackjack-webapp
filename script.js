@@ -1,17 +1,5 @@
-/* create a deck of cards
-   game starts with shuffling deck and dealing 2 cards to each player
-   these cards get subtracted from the top left playing deck
-   add up the values of player's current cards and show
-   * Ace can be 1 or 11 depending on the point total 
-   if they're under 21, they can Hit and draw another card
-   if they go over 21, they lose
-   if they stand, it's dealers turn
-   dealer Hits until they have at least 17
-   then they stand, or bust
-   after dealer's turn ends, compare the players points and declare the winner
-   Hit and Stand buttons are disabled
-   can hit Restart to restart the game
-   then the deck will shuffle and game will restart
+/* 
+    
 */
 
 
@@ -151,6 +139,8 @@ function startGame() {
     $('#stand').prop('disabled', false);
     $('#hit').prop('disabled', false);
     $('.winner').prop('hidden', true);
+    $('.player').removeClass('shadow');
+    $('.dealer').removeClass('shadow');
 
     playerAces = 0;
     dealerAces = 0;
@@ -205,13 +195,17 @@ function checkWinner() {
             $('.winner').text('You both busted');
         } else {
             $('.winner').text('Dealer won');
+            $('.dealer').addClass('shadow');
         }
     } else if (dealerScore > 21) {
         $('.winner').text('You won!');
+        $('.player').addClass('shadow');
     } else if (playerScore > dealerScore) {
         $('.winner').text('You won!');
+        $('.player').addClass('shadow');
     } else if (dealerScore > playerScore) {
         $('.winner').text('Dealer won');
+        $('.dealer').addClass('shadow');
     } else {
         $('.winner').text('It\'s a draw');
     }
