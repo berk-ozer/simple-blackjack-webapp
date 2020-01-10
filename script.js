@@ -1,7 +1,3 @@
-/* 
-    
-*/
-
 
 // creating a deck of cards
 
@@ -33,7 +29,7 @@ function createDeck() {
 }
 
 
-// shuffling the deck function
+// shuffling the deck
 
 function shuffleDeck() {
     for (i = 0; i < 1000; i++) {
@@ -49,6 +45,7 @@ function shuffleDeck() {
 
 // drawing card function, which returns a card as a <div> element
 // records the weight of drawn card in addScore
+// checks if card is an ace
 
 let addScore;
 let isAce;
@@ -78,11 +75,11 @@ function drawCard() {
 // updating scores
 // handles the special case of aces
 
-let playerScore = 0;
-let dealerScore = 0;
+let playerScore;
+let dealerScore;
 
-let playerAces = 0;
-let dealerAces = 0
+let playerAces;
+let dealerAces;
 
 function dealToPlayer() {
     $('.player .card-table').append(drawCard());
@@ -98,7 +95,7 @@ function dealToPlayer() {
         
     $('.player .score').text(playerScore);
 
-    if (playerScore >= 21) {
+    if (playerScore > 21) {
         playerStand();
     }
 }
@@ -146,12 +143,13 @@ function startGame() {
     dealerAces = 0;
     playerScore = 0;
     dealerScore = 0;
-    $('.player .score').text(playerScore);
-    $('.dealer .score').text(dealerScore);
 
     createDeck();
     shuffleDeck();
     dealCards();
+
+    $('.dealer .card-table div:nth-of-type(1)').addClass('blocked');
+    $('.dealer .score').text('?');
 }
 
 
@@ -167,6 +165,9 @@ $('#stand').on('click', playerStand);
 function playerStand() {
     $('#stand').prop('disabled', true);
     $('#hit').prop('disabled', true);
+
+    $('.dealer .score').text(dealerScore);
+    $('.dealer .card-table div:nth-of-type(1)').removeClass('blocked');
     playDealer();
 }
 

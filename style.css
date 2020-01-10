@@ -91,8 +91,12 @@ button {
 .card {
     width: 90px;
     height: 136px;
-    background-image: url(images/JC.png);
     background-size: cover;
     display: inline-block;
     margin: 7px 3px;
+}
+
+.blocked {
+    box-sizing: border-box;
+    border: 45px solid rgb(193, 49, 28);
 }
